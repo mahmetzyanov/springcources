@@ -9,7 +9,16 @@
 
     <bean id="testBean"
           class="org.ahmetzyanov.javaspringcourse.TestBeanOne">
-        <constructor-arg value="Marat"/>
+        <constructor-arg value="This is value from constructor"/>
+    </bean>
+
+    <bean id="musicBean"
+          class="org.ahmetzyanov.javaspringcourse.RapMusic">
+    </bean>
+
+    <bean id="musicPlayerBean"
+          class="org.ahmetzyanov.javaspringcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
