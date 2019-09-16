@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="testBean"
+          class="org.ahmetzyanov.javaspringcourse.TestBean1">
+        <constructor-arg value="This is value from constructor"/>
+    </bean>
+
+    <bean id="musicBean"
+          class="org.ahmetzyanov.javaspringcourse.RapMusic">
+    </bean>
+
+    <bean id="firstMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.ClassicalMusic">
+    </bean>
+    <bean id="secondMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.RockMusic">
+    </bean>
+    <bean id="thirdMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.JazzMusic">
+    </bean>
+    <bean id="fourthMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.RapMusic">
+    </bean>
+
+    <bean id="musicPlayerBean"
+          class="org.ahmetzyanov.javaspringcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="secondMusicPlayerBean"
+          class="org.ahmetzyanov.javaspringcourse.MusicPlayer2">
+        <property name="musicList">
+            <list>
+                <ref bean="firstMusicBean"/>
+                <ref bean="secondMusicBean"/>
+                <ref bean="thirdMusicBean"/>
+                <ref bean="fourthMusicBean"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+
+</beans>
