@@ -1,20 +1,30 @@
 package org.ahmetzyanov.javaspringcourse;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-public class MusicPlayer3 {
-    public List<Music> getMusicList() {
-        return musicList;
-    }
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    private List<Music> musicList = new ArrayList<>();
+@Component
+public class MusicPlayer5 {
+    private Music music1;
+    private Music music2;
     private String name;
     private int volume;
+
+    @Autowired
+    public MusicPlayer5(@Qualifier("metalMusic") Music music1,
+                        @Qualifier("tranceMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
+    }
+
+
+    public String playMusic() {
+        return "playing: " + music1.getSong() + " & " + music2.getSong() + "\n";
+    }
 
     public String getName() {
         return name;
@@ -32,20 +42,13 @@ public class MusicPlayer3 {
         this.volume = volume;
     }
 
-    public MusicPlayer3() {
-    }
-
+    @PostConstruct
     public void turnOnPlayer() {
-        System.out.println("---> Turn on Player3 == " + this.toString());
+        System.out.println("\n---> Turn on Player3 == " + this.toString() + "\n");
     }
 
+    @PreDestroy
     public void turnOffPlayer() {
-        System.out.println("---> Turn off Player3 == " + this.toString());
-    }
-
-    public void playMusic() {
-        for (Music music: musicList) {
-            System.out.println("The 3rd player is playing: " + music.getSong());
-        }
+        System.out.println("\n---> Turn off Player3 == " + this.toString() + "\n");
     }
 }

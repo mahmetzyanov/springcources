@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans  xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="testBean"
-          class="org.ahmetzyanov.javaspringcourse.TestBeanOne">
+          class="org.ahmetzyanov.javaspringcourse.TestBean1">
         <constructor-arg value="This is value from constructor"/>
     </bean>
 
     <bean id="musicBean"
           class="org.ahmetzyanov.javaspringcourse.RapMusic">
+    </bean>
+
+    <bean id="firstMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.ClassicalMusic"
+          init-method="turnOnMusic"
+          destroy-method="turnOffMusic">
+    </bean>
+    <bean id="secondMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.RockMusic"
+          init-method="turnOnMusic"
+          destroy-method="turnOffMusic">
+    </bean>
+    <bean id="thirdMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.JazzMusic"
+          init-method="turnOnMusic"
+          destroy-method="turnOffMusic">
+    </bean>
+    <bean id="fourthMusicBean"
+          class="org.ahmetzyanov.javaspringcourse.RapMusic"
+          init-method="turnOnMusic"
+          destroy-method="turnOffMusic">
     </bean>
 
     <bean id="musicPlayerBean"

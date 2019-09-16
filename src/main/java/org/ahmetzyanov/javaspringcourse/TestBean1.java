@@ -1,9 +1,9 @@
 package org.ahmetzyanov.javaspringcourse;
 
-public class TestBeanOne {
+public class TestBean1 {
     private String name;
 
-    public TestBeanOne(String name) {
+    public TestBean1(String name) {
         this.name = name;
     }
 

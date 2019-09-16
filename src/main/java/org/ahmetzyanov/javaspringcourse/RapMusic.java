@@ -6,4 +6,11 @@ public class RapMusic implements Music {
     public String getSong() {
         return "Dear Mama";
     }
+
+    public void turnOnMusic (){
+        System.out.println("--> Turn on Rap music");
+    }
+    public void turnOffMusic (){
+        System.out.println("--> Turn off Rap music");
+    }
 }

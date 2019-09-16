@@ -3,7 +3,7 @@ package org.ahmetzyanov.javaspringcourse;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-public class TestSpringOne {
+public class TestSpring1 {
 
 
     public static void main(String[] args) {
@@ -11,19 +11,15 @@ public class TestSpringOne {
                 "applicationContext.xml"
         );
 
-        TestBeanOne testBeanOne = context.getBean("testBean", TestBeanOne.class);
+        TestBean1 testBean1 = context.getBean("testBean", TestBean1.class);
 
-        System.out.println(testBeanOne.getName());
+        System.out.println(testBean1.getName());
 
 //        Music music = context.getBean("musicBean", Music.class);
 //        MusicPlayer musicPlayer = new MusicPlayer(music);
         MusicPlayer musicPlayer = context.getBean("musicPlayerBean", MusicPlayer.class);
         musicPlayer.playMusic();
 
-        MusicPlayerTwo secondMusicPlayer = context.getBean("secondMusicPlayerBean", MusicPlayerTwo.class);
-        secondMusicPlayer.playMusic();
-        System.out.println("Name   : " + secondMusicPlayer.getName());
-        System.out.println("Volume : " + secondMusicPlayer.getVolume());
         context.close();
     }
 }

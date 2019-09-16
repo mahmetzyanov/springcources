@@ -3,7 +3,7 @@ package org.ahmetzyanov.javaspringcourse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicPlayer2 {
+public class MusicPlayer3 {
     public List<Music> getMusicList() {
         return musicList;
     }
@@ -32,12 +32,20 @@ public class MusicPlayer2 {
         this.volume = volume;
     }
 
-    public MusicPlayer2() {
+    public MusicPlayer3() {
+    }
+
+    public void turnOnPlayer() {
+        System.out.println("---> Turn on Player3 == " + this.toString());
+    }
+
+    public void turnOffPlayer() {
+        System.out.println("---> Turn off Player3 == " + this.toString());
     }
 
     public void playMusic() {
         for (Music music: musicList) {
-            System.out.println("The 2nd player is playing: " + music.getSong());
+            System.out.println("The 3rd player is playing: " + music.getSong());
         }
     }
 }

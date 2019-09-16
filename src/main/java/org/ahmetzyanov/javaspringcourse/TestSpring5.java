@@ -2,20 +2,18 @@ package org.ahmetzyanov.javaspringcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestSpring4 {
+public class TestSpring5 {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext4.xml"
         );
 
-        Music music1 = context.getBean("musicBean", Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(music1);
-        musicPlayer.playMusic();
+        MusicPlayer5 firstMusicPlayer = context.getBean("musicPlayer5", MusicPlayer5.class);
+        firstMusicPlayer.playMusic();
 
-        Music music2 = context.getBean("metalMusic", Music.class);
-        musicPlayer.setMusic(music2);
-        musicPlayer.playMusic();
+        Computer1 computer1 = context.getBean("computer1", Computer1.class);
+        System.out.println(computer1.toString());
 
         context.close();
     }

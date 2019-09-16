@@ -1,6 +1,6 @@
-package org.ahmetzyanov;
+package org.ahmetzyanov.test;
 
-import org.ahmetzyanov.util.MailService;
+import org.ahmetzyanov.test.service.impl.MailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +14,7 @@ import java.util.List;
 public class TestMailService implements CommandLineRunner {
 
     @Autowired
-    private MailService mailService;
+    private MailServiceImpl mailService;
 
     public static void main(String[] args) {
         SpringApplication.run(TestMailService.class, args);
@@ -26,7 +26,7 @@ public class TestMailService implements CommandLineRunner {
         recipients.add("marat.ahmetzyanov@distcotech.com");
         recipients.add("marat.ahmetzyanov@gmail.com");
         String subject = "Testing from Spring Boot";
-        String message = "Hello World!!! \nSpring Boot Email! \n Without FROM field. \nUsing other class";
+        String message = "Hi World!!! \nSpring Boot Email! \nWithout FROM field. \nUsing other class";
 
         try {
             mailService.postMailSimpleMail(recipients, subject, message);

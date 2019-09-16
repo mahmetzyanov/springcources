@@ -1,6 +1,7 @@
 package org.ahmetzyanov.test.service.impl;
 
 
+import org.ahmetzyanov.test.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -11,7 +12,7 @@ import javax.mail.MessagingException;
 import java.util.List;
 
 @Service
-public class MailService implements org.ahmetzyanov.test.MailService {
+public class MailServiceImpl implements MailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
